@@ -2,6 +2,8 @@
 Code, models and Datasets for[《Self-Explaining Structures Improve NLP Models》](http://arxiv.org/abs/2012.01786).
 
 ## installation 
+`pip install sentence-transformers`  // If using sentence transformers (SBERT), install it first
+
 `pip install -r requirements.txt`
 
 ## Prepare Datasets and Models
