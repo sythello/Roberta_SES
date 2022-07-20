@@ -16,13 +16,16 @@ from roberta_ses.datasets.collate_functions import collate_to_max_length
 
 
 class ExplainableModel(nn.Module):
-    def __init__(self, bert_dir):
+    def __init__(self, bert_dir, output_classes=None):
         super().__init__()
+
         self.bert_config = RobertaConfig.from_pretrained(bert_dir, output_hidden_states=False)
         self.intermediate = RobertaModel.from_pretrained(bert_dir)
         self.span_info_collect = SICModel(self.bert_config.hidden_size)
         self.interpretation = InterpretationModel(self.bert_config.hidden_size)
-        self.output = nn.Linear(self.bert_config.hidden_size, self.bert_config.num_labels)
+        if output_classes is None:
+            output_classes = self.bert_config.num_labels
+        self.output = nn.Linear(self.bert_config.hidden_size, output_classes)
 
     def forward(self, input_ids, start_indexs, end_indexs, span_masks):
         # generate mask

@@ -10,17 +10,19 @@ class Roberta_SES_Entailment(pl.LightningModule):
     def __init__(self,
                  roberta_path,
                  ckpt_path,
+                 output_classes=None,
                  max_length=512,
                  device_name='cpu'):
         super().__init__()
         
         self.roberta_path = roberta_path
         self.ckpt_path = ckpt_path
+        self.output_classes = output_classes
         self.max_length = max_length
         self.device_name = device_name
         
         # For loading purpose, this has to be named "model" 
-        self.model = ExplainableModel(roberta_path)
+        self.model = ExplainableModel(roberta_path, output_classes)
         
         self.tokenizer = RobertaTokenizer.from_pretrained(roberta_path)
         
