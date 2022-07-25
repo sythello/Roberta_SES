@@ -145,7 +145,7 @@ class Roberta_SES_Sentiment(pl.LightningModule):
 
 if __name__ == "__main__":
     # roberta_path = '/home/ubuntu/users/yutong/models/roberta-base'
-    roberta_path = '~/ytshao/models/roberta-base'
+    roberta_path = '/home/ec2-user/ytshao/models/roberta-base'
 
     ## entailment test
     print("Creating entailment object...")
