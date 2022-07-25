@@ -150,7 +150,7 @@ if __name__ == "__main__":
     ## entailment test
     print("Creating entailment object...")
     entailment_model = Roberta_SES_Entailment(roberta_path=roberta_path,
-                                              ckpt_path='checkpoints/snli/base/epoch=4-valid_loss=-0.6472-valid_acc_end=0.9173.ckpt',
+                                              ckpt_path='checkpoints/snli_checkpoints/base/epoch=4-valid_loss=-0.6472-valid_acc_end=0.9173.ckpt',
                                               max_length=512,
                                               output_classes=3,
                                               device_name='cpu')
@@ -168,7 +168,7 @@ if __name__ == "__main__":
     ## sentiment test
     print("Creating sentiment object...")
     sentiment_model = Roberta_SES_Sentiment(roberta_path=roberta_path,
-                                              ckpt_path='checkpoints/sst5/base/epoch=2-valid_loss=0.9624-valid_acc_end=0.5746.ckpt',
+                                              ckpt_path='checkpoints/sst5_checkpoints/base/epoch=2-valid_loss=0.9624-valid_acc_end=0.5746.ckpt',
                                               max_length=512,
                                               output_classes=5,
                                               device_name='cpu')
